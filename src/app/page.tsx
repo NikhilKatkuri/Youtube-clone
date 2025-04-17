@@ -19,7 +19,7 @@ export default function Page() {
                 xl:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]"
         >
           {[...Array(20)].map((_, i) => {
-            return <FeedTypeVid key={i} loader  />;
+            return <FeedTypeVid key={i}   />;
           })}
         </main>
       </div>
