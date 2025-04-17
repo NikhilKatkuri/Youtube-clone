@@ -4,14 +4,13 @@ import { FC } from "react";
 import YouTubeLogo from "./logo/YouTubeLogo-nik";
 import RoundedBtn from "./ui/rounded-btn";
 import { useScreenContext } from "@/context/ScreenContext";
-import "../styles/font.css";
-import "../styles/grid.css";
+import "../styles/font.css"; 
 
 const Sidebar: FC = () => {
   const { isSidebar, setisSidebar } = useScreenContext();
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 bg-white shadow-xl grid grid-rows-[56px_1fr]">
+    <div className="fixed left-0 top-0 h-screen w-64 bg-white shadow-xl grid grid-rows-[56px_1fr] z-[200]">
       {/* Top bar with menu and logo */}
       <div className="flex items-center h-14 px-1 md:px-4 row-start-1">
         <div className="flex items-center gap-4">
