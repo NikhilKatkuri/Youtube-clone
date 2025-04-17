@@ -1,4 +1,9 @@
-const API_KEY: string = "AIzaSyDxja4HbPG0mqj9scaVDoZ-uT9imlf7ags"; // You can load this from environment in a real setup
+const API_KEY: string =
+  process.env.GOOGLE_YT_API_KEY ??
+  (() => {
+    throw new Error("Missing GOOGLE_YT_API_KEY");
+  })();
+// You can load this from environment in a real setup
 const BASE_URL: string = "https://www.googleapis.com/youtube/v3";
 
 type Params = {

@@ -91,7 +91,7 @@ export const YoutTubeContextProvider: React.FC<{ children: ReactNode }> = ({
           chart: "mostPopular",
           regionCode: "IN",
           type: "video",
-          videoCategoryId: 10,
+          // videoCategoryId: 10,
           maxResults: 100,
         }
       );
