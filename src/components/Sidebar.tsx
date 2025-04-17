@@ -4,15 +4,15 @@ import { FC } from "react";
 import YouTubeLogo from "./logo/YouTubeLogo-nik";
 import RoundedBtn from "./ui/rounded-btn";
 import { useScreenContext } from "@/context/ScreenContext";
-import "../styles/font.css"; 
+import "../styles/font.css";
 
 const Sidebar: FC = () => {
   const { isSidebar, setisSidebar } = useScreenContext();
-
+  const user: boolean = !false;
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 bg-white shadow-xl grid grid-rows-[56px_1fr] z-[200]">
+    <div className="fixed left-0 top-0 h-screen w-64 bg-white shadow-xl grid grid-rows-[56px_1fr_40px] z-[200]">
       {/* Top bar with menu and logo */}
-      <div className="flex items-center h-14 px-1 md:px-4 row-start-1">
+      <div className="flex items-center h-14 px-1 md:px-4 row-span-1">
         <div className="flex items-center gap-4">
           <RoundedBtn onClick={() => setisSidebar(!isSidebar)}>
             <svg
@@ -31,7 +31,7 @@ const Sidebar: FC = () => {
       </div>
 
       {/* Sidebar Menu */}
-      <div className="overflow-y-auto w-full px-1 md:px-4 mt-3">
+      <div className="overflow-y-auto min-h-full w-full px-1 md:px-4 mt-3 row-span-2">
         <div className="grid gap-2">
           {/* Menu Item */}
           <SidebarItem active label="Home">
@@ -46,43 +46,47 @@ const Sidebar: FC = () => {
             <SubscriptionsIcon />
           </SidebarItem>
         </div>
-        <div className="h-[1.5px] w-full bg-black/20 mt-2 rounded-full" />
-        <div className="grid gap-2">
-          <div className="flex items-center cursor-pointer  px-4 my-2 ">
-            <span className="font-[450] text-base">You</span>
-          </div>
-          {/* History */}
-          <SidebarItem label="History">
-            <History />
-          </SidebarItem>
-          {/* !History */}
-          {/* Playlists */}
-          <SidebarItem label="Playlists">
-            <Playlists />
-          </SidebarItem>
-          {/* !Playlists */}
-          {/* Your videos */}
-          <SidebarItem label="Your videos">
-            <YourVideos />
-          </SidebarItem>
-          {/* !Your videos */}
-          {/* Your courses */}
-          <SidebarItem label="Your courses">
-            <YourCourses />
-          </SidebarItem>
-          {/* !Your courses */}
-          {/* Watch later */}
-          <SidebarItem label="Watch later">
-            <WatchLater />
-          </SidebarItem>
-          {/* !Watch later */}
-          {/* Liked videos */}
-          <SidebarItem label="Liked videos">
-            <LikedVideos />
-          </SidebarItem>
+        {user && (
+          <>
+            <div className="h-[1.5px] w-full bg-black/20 mt-2 rounded-full" />
+            <div className="grid gap-2">
+              <div className="flex items-center cursor-pointer  px-4 my-2 ">
+                <span className="font-[450] text-base">You</span>
+              </div>
+              {/* History */}
+              <SidebarItem label="History">
+                <History />
+              </SidebarItem>
+              {/* !History */}
+              {/* Playlists */}
+              <SidebarItem label="Playlists">
+                <Playlists />
+              </SidebarItem>
+              {/* !Playlists */}
+              {/* Your videos */}
+              <SidebarItem label="Your videos">
+                <YourVideos />
+              </SidebarItem>
+              {/* !Your videos */}
+              {/* Your courses */}
+              <SidebarItem label="Your courses">
+                <YourCourses />
+              </SidebarItem>
+              {/* !Your courses */}
+              {/* Watch later */}
+              <SidebarItem label="Watch later">
+                <WatchLater />
+              </SidebarItem>
+              {/* !Watch later */}
+              {/* Liked videos */}
+              <SidebarItem label="Liked videos">
+                <LikedVideos />
+              </SidebarItem>
 
-          {/* !Liked videos */}
-        </div>
+              {/* !Liked videos */}
+            </div>
+          </>
+        )}
         <div className="h-[1.5px] w-full bg-black/20 mt-2 rounded-full" />
         <div className="grid grid-cols-1 gap-2  ">
           <div className="flex items-center cursor-pointer  px-4 my-2 ">
@@ -124,12 +128,12 @@ const Sidebar: FC = () => {
           </SidebarItem>
           {/* !Shopping */}
         </div>
-        <div className="h-auto w-full py-6 grid grid-cols-1 gap-3">
-          <div className="text-xs text-neutral-500 font-medium">
-            &copy;
-            {new Date().getFullYear()} Nikhil | Cherry
-          </div>
-        </div>
+      </div>
+      <div className="h-10 bg-white w-full  flex items-center  row-span-3">
+        <p className="text-xs text-neutral-500 font-medium  mx-auto">
+          &copy;
+          {new Date().getFullYear()} Nikhil  Katkuri | Cherry
+        </p>
       </div>
     </div>
   );

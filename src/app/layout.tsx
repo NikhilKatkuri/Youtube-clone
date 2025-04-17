@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import "../styles/font.css";
 import { ScreenContextProvider } from "@/context/ScreenContext";
+import { YoutTubeContextProvider } from "@/context/YoutubeData";
 
 export const metadata: Metadata = {
   title: "Youtube-nik",
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <YoutTubeContextProvider>
+
         <ScreenContextProvider>{children}</ScreenContextProvider>
+        </YoutTubeContextProvider>
       </body>
     </html>
   );

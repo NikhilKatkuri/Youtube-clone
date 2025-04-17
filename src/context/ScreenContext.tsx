@@ -6,7 +6,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-
+ 
 interface DM {
   width: number;
   height: number;
@@ -44,6 +44,7 @@ export const ScreenContextProvider: React.FC<{ children: ReactNode }> = ({
     };
   }, []);
   const [isSidebar, setisSidebar] = useState<boolean>(false);
+ 
   return (
     <ScreenContext.Provider
       value={{ isSidebar, setisSidebar, value, setvalue, Dimention }}
